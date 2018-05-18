@@ -23,7 +23,7 @@ The minimum requirement by this project template that your Web server supports P
 
 INSTALLATION
 ------------
--composer install
+-composer install <br>
 -config/db.php konfigurasi database (nama database pos)
 
 MIGRATE
