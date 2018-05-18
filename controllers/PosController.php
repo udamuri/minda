@@ -7,8 +7,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\TransactionsForm;
 
 class PosController extends Controller
 {
@@ -23,7 +22,7 @@ class PosController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index'],
+                        'actions' => ['index', 'create'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -35,6 +34,19 @@ class PosController extends Controller
     public function actionIndex()
     {
         return $this->render('index');
+    }
+    
+    public function actionCreate()
+    {
+        \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $model = new TransactionsForm;
+        if ($model->load(Yii::$app->request->post())) {
+            if ($model->create()) {
+                return $model->getCreate();
+            } else {
+                return $model->errors;
+            }
+        }
     }
 
 }

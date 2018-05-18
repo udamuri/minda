@@ -36,7 +36,7 @@ function master()
                 MasterObj.getData(id);
                 $('#id-produk').val(id);
             } 
-        })
+        });
     }
 
     //create ajax

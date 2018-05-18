@@ -64,7 +64,7 @@ function index()
 			
 		$("#alert-"+pDate+valid).fadeOut(v_time_o, function(){
 			$("#alert-"+pDate+valid).remove();
-			if( typeof redirect != undefined && redirect != '')
+			if( typeof redirect !== undefined && redirect !== '')
 			{
 				window.location = IndexObj.baseUrl+redirect;
 			}

@@ -17,7 +17,7 @@ class m180518_075259_transactions extends Migration
 
         $this->createTable('{{%transactions}}', [
             'id' => $this->bigPrimaryKey(),
-            'code' => $this->string(150)->notNull()->unique(),
+            'code' => $this->string(150)->notNull(),
             'price' => $this->integer(15)->notNull(),
             'qty' => $this->integer(15)->notNull(),
             'created_at' => $this->dateTime()->notNull(),
